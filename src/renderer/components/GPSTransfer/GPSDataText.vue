@@ -9,16 +9,16 @@ export default {
     props: {
         'text': String
     },
-    data: function () {
+    data: function() {
         return {
             data: this.text
         }
     },
     watch: {
-        text: function (value) {
+        text: function(value) {
             this.data = value
         },
-        data: function (value) {
+        data: function(value) {
             this.$emit('update:text', value)
         }
     }

@@ -23,14 +23,15 @@
 </template>
 
 <script>
+
 import GpsDataText from './GPSTransfer/GPSDataText'
 import GpsType from './GPSTransfer/GPSType'
-import gps from '../../util/gps'
-import formatter from '../../util/contant.formatter'
+
+import ft from '../../util/formatter'
 
 export default {
-    name: 'gps-transfer',
-    components: { GpsDataText, GpsType, gps, formatter },
+    name: 'GTClinet',
+    components: { GpsDataText, GpsType },
     data: function () {
         return {
             from: {
@@ -45,8 +46,8 @@ export default {
     },
     methods: {
         transfer: function () {
-            let data = formatter.contentFormatter(this.$data.from.data)
-            this.$data.to.data = data
+            let data = ft.formatter(this.from.data)
+            this.to.data = data
         },
         fromSelected: function (value) {
             this.from.type = value
